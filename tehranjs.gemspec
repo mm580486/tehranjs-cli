@@ -5,7 +5,7 @@ require 'tehranjs/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "tehranjs"
-  spec.version       = Tehranjs::VERSION
+  spec.version       = Tehranjs::Identity.version
   spec.authors       = ["mohammad mahmoudi"]
   spec.email         = ["mm580486@gmail.com"]
 
@@ -30,7 +30,12 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.required_ruby_version = "~> 2.0"
+  spec.add_dependency "thor", "~> 0.19"
+  spec.add_dependency "thor_plus", "~> 5.0"
+  
   spec.add_development_dependency "bundler", "~> 1.14"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  
 end
