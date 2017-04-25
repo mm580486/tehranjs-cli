@@ -1,7 +1,8 @@
+require "tehranjs/identity"
 require "thor"
 require "thor/actions"
 require "thor_plus/actions"
-require 'tehranjs/cli/process'
+require 'tehranjs/cli/serve'
 
 module Tehranjs
   # The Command Line Interface (CLI) for the gem.
@@ -13,8 +14,8 @@ module Tehranjs
     namespace :default
 
     register(
-      Process,
-      "process", "process server",
+      Serve,
+      "serve", "process server",
       "Process for run server",
       hide: true
     )
