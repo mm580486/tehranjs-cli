@@ -1,0 +1,13 @@
+#! /usr/bin/env ruby
+# frozen_string_literal: true
+
+gem_dir = File.expand_path(File.dirname(__FILE__) + "/../lib")
+
+if $LOAD_PATH.map { |d| File.expand_path(d) }.all? { |d| d != gem_dir }
+  $LOAD_PATH.unshift gem_dir
+end
+
+require 'tehranjs'
+require 'tehranjs/cli'
+
+Tehranjs::CLI.start
