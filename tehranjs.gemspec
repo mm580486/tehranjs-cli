@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'tehranjs/version'
+require 'tehranjs/identity'
 
 Gem::Specification.new do |spec|
   spec.name          = "tehranjs"
@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["mohammad mahmoudi"]
   spec.email         = ["mm580486@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Tehranjs gem help you to build markdown file}
+  spec.description   = %q{Tehranjs gem help you to build markdown file}
+  spec.homepage      = "https://github.com/mm580486/tehranjs-cli"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -33,7 +33,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = "~> 2.0"
   spec.add_dependency "thor", "~> 0.19"
   spec.add_dependency "thor_plus", "~> 5.0"
-  
+
   spec.add_development_dependency "bundler", "~> 1.14"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
