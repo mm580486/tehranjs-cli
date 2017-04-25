@@ -1,9 +1,9 @@
 require "thor"
 require "thor/actions"
 require "thor_plus/actions"
+require 'tehranjs/cli/process'
 
-
-module CsvUtil
+module Tehranjs
   # The Command Line Interface (CLI) for the gem.
   class CLI < Thor
     include Thor::Actions
