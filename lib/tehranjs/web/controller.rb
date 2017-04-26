@@ -1,13 +1,15 @@
 require 'erb'
-
+require_relative 'helper.rb'
 module Tehranjs
     module Web
         class Controller
-            
+
         def self.index
                 self.render 'index.html.erb'
         end
-            
+
+
+
         def self.render template
             @layout = File.read(::File.join(::File.dirname(__FILE__),"views", '_layouts','application.html.erb'))
             @template = File.read(::File.join(::File.dirname(__FILE__),"views", template))
