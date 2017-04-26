@@ -3,8 +3,6 @@ module Tehranjs
         class Servlet < WEBrick::HTTPServlet::AbstractServlet
 
                 def do_GET (request, response)
-
-            
                         response.status = 200
                         response.content_type = "text/html"
                         result = nil
@@ -21,8 +19,6 @@ module Tehranjs
                         response.body = result.to_s + "\n"
                 
                 end
-
-
         end
     end
 end
