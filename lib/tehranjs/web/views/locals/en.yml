@@ -4,3 +4,11 @@ en:
      IndexPage: Home
      AboutPage: About Us
      NewArticlePage: New Article
+  form:
+      date: Date
+      title: Title
+      author: Author
+      author_twitter_id: author twitter ID
+      save: Save
+      reset: reset
+ 
