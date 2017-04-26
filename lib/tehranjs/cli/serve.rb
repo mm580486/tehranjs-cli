@@ -15,11 +15,11 @@ module Tehranjs
       class_option :port,
                    aliases: "-p",
                    desc: "Server Port",
-                   type: :numeric, default: 580486
+                   type: :numeric, default: 2525
 
       def Serve
 
-server = WEBrick::HTTPServer.new(:Port => 1234)
+server = WEBrick::HTTPServer.new(:Port => options[:port])
 
 server.mount "/", Tehranjs::Web::Servlet
 
