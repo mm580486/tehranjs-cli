@@ -4,3 +4,10 @@ fa:
      IndexPage: صفحه اصلی
      AboutPage: درباره ما
      NewArticlePage: ثبت مقاله
+ form:
+     date: تاریخ
+     title: عنوان
+     author: نام نویسنده
+     author_twitter_id: یوزرنیم توییتر
+     save: ذخیره
+     reset: ریست
