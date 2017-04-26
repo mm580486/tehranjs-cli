@@ -1,0 +1,21 @@
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">
+        <%= image_tag "logo.png" %>
+    </a>
+
+      <ul class="right hide-on-med-and-down">
+<% [[I18n.t('nav.IndexPage'),'/'],[I18n.t('nav.AboutPage'),'about']].each do |page| %>
+        <li><a href="<%= page[1] %>"><%= page[0] %></a></li>
+<% end %>
+
+        <li><a href="#"><%= I18n.locale %></a></li>
+
+
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>

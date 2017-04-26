@@ -22,3 +22,9 @@ end
 def javascript_link_tag asset_path
    return content_tag(:script,'',single=false,{src: "/public/assets/js/#{asset_path}"})
 end
+
+def partial template
+    template = ('_'+template.gsub('.html','')+'.html.erb') 
+    template = File.read(::File.join(::File.dirname(__FILE__),"views","_partials", template))
+    return ERB.new(template).result( )
+end
