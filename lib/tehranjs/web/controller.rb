@@ -22,6 +22,14 @@ module Tehranjs
                 self.render 'new_article.html.erb'
         end
 
+        def self.version_label
+            return Tehranjs::Identity.version_label
+        end
+
+         def self.not_found
+            
+        end
+
         def self.render template
                       
             @layout = File.read(::File.join(::File.dirname(__FILE__),"views", '_layouts','application.html.erb'))

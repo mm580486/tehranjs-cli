@@ -13,6 +13,10 @@
         <%= yield %>
         <script src="https://code.jquery.com/jquery-3.2.0.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+        <%= javascript_link_tag 'ckeditor.js' %>
         <%= javascript_link_tag 'application.js' %>
+        <script>
+	        initSample();
+        </script>
    </body>
 </html>

@@ -21,6 +21,23 @@ module Tehranjs
                         response.body = result
                 
                 end
+
+
+                def do_POST(request, response)
+                    response.status = 200
+                    response.content_type = "text/html"
+                    case request.path
+                                    when "/build_article"
+                                response.body = 'salam'  
+                                    
+                    end
+        
+
+
+                end
+
+
+
         end
     end
 end
