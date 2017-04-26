@@ -21,6 +21,7 @@ module Tehranjs
 
 server = WEBrick::HTTPServer.new(:Port => options[:port])
 
+server.mount '/public', WEBrick::HTTPServlet::FileHandler,::File.join(::File.dirname(__FILE__),"..", 'web','views','public')
 server.mount "/", Tehranjs::Web::Servlet
 
 trap("INT") {
