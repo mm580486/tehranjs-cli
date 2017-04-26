@@ -10,13 +10,15 @@ module Tehranjs
                         case request.path
                             when "/"
                                 result = Tehranjs::Web::Controller.index
-                            when "/subtract"
-                                result = MyNormalClass.subtract(a, b)
+                            when "/about"
+                                result = Tehranjs::Web::Controller.about
+                            when "/new_article"
+                                result = Tehranjs::Web::Controller.new_article
                             else
                                 result = "No such method"
                         end
                         
-                        response.body = result.to_s + "\n"
+                        response.body = result
                 
                 end
         end
