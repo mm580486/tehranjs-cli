@@ -4,7 +4,7 @@
     </a>
 
       <ul class="right hide-on-med-and-down">
-<% [[I18n.t('nav.IndexPage'),'/'],[I18n.t('nav.AboutPage'),'about']].each do |page| %>
+<% [[I18n.t('nav.IndexPage'),'/'],[I18n.t('nav.AboutPage'),'about'],[I18n.t('nav.NewArticlePage'),'/new_article']].each do |page| %>
         <li><a href="<%= page[1] %>"><%= page[0] %></a></li>
 <% end %>
 
