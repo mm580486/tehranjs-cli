@@ -14,8 +14,16 @@ module Tehranjs
         def self.index
                 self.render 'index.html.erb'
         end
+        def self.about
+                self.render 'about.html.erb'
+        end
+
+        def self.new_article
+                self.render 'new_article.html.erb'
+        end
 
         def self.render template
+                      
             @layout = File.read(::File.join(::File.dirname(__FILE__),"views", '_layouts','application.html.erb'))
             @template = File.read(::File.join(::File.dirname(__FILE__),"views", template))
             templates = [@template, @layout]
