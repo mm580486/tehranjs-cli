@@ -8,7 +8,7 @@ module Tehranjs
   # The Command Line Interface (CLI) for the gem.
   class CLI < Thor
     include Thor::Actions
-    include ThorPlus::Actions
+
 
     package_name Identity.version_label
     namespace :default
