@@ -6,7 +6,7 @@ require "tehranjs/web/servlet"
 module Tehranjs
   class CLI < Thor
     class Serve < Thor::Group
-
+    check_unknown_options!
 
 
       desc "Serve start server"
