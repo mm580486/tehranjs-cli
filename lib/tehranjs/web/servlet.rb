@@ -5,6 +5,7 @@ module Tehranjs
                 def do_GET (request, response)
                         response.status = 200
                         response.content_type = "text/html"
+                        
                         result = nil
                         
                         case request.path
@@ -27,12 +28,13 @@ module Tehranjs
                     response.status = 200
                     response.content_type = "text/html"
                     case request.path
-                                    when "/build_article"
-                                response.body = 'salam'  
-                                    
+                      when "/build_article"
+                           result = Tehranjs::Web::Controller.build_article(response,request.query)   
+                      else
+                        result = 'Invalid url'
                     end
         
-
+ response.body = result
 
                 end
 
