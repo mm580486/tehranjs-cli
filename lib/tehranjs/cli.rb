@@ -7,6 +7,7 @@ require 'tehranjs/cli/serve'
 module Tehranjs
   # The Command Line Interface (CLI) for the gem.
   class CLI < Thor
+    
     include Thor::Actions
 
 
@@ -20,6 +21,11 @@ module Tehranjs
       hide: true
     )
 
+
+    class_option 'verbose',  :type => :boolean, :default => false
+    def self.exit_on_failure?
+        true
+    end
 
     def initialize args = [], options = {}, config = {}
       super args, options, config
