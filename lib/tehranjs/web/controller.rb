@@ -24,8 +24,9 @@ module Tehranjs
         
         def self.build_article response, params
                 @params = params.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
+                filename = parameterize([@params[:date],@params[:title]].join(' '),'-')
                 response.content_type = "application/octet-stream"
-                response.[]=('Content-Disposition','attachment; filename="picture.md"')
+                response.[]=('Content-Disposition',"attachment; filename='#{filename}.md'")
                 self.render 'build_article.md.erb',false 
         end
 
