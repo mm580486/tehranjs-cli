@@ -28,3 +28,22 @@ def partial template
     template = File.read(::File.join(::File.dirname(__FILE__),"views","_partials", template))
     return ERB.new(template).result( )
 end
+
+
+def parameterize(string, sep = '-')
+    # replace non-standaed character with question mark
+    parameterized_string = I18n.transliterate(string)
+    # remove all question mark
+    parameterized_string.gsub!('?','')
+    # Turn unwanted chars into the separator
+    parameterized_string.gsub!(/[^a-z0-9A-Z\-_]+/, sep)
+
+    unless sep.nil? || sep.empty?
+    re_sep = Regexp.escape(sep)
+    # No more than one of the separator in a row.
+    parameterized_string.gsub!(/#{re_sep}{2,}/, sep)
+    # Remove leading/trailing separator.
+    parameterized_string.gsub!(/^#{re_sep}|#{re_sep}$/, '')
+    end
+    parameterized_string.downcase
+end
