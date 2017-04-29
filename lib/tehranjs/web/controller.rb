@@ -1,13 +1,6 @@
 require 'erb'
 require_relative 'helper.rb'
-require 'i18n'
 require 'tehranjs/web/filter'
-
-I18n.load_path = Dir[::File.join(::File.dirname(__FILE__),"views", 'locals','*.yml')]
-I18n.backend.load_translations
-
-I18n.config.available_locales = :en
-
 
 module Tehranjs
     module Web
