@@ -1,9 +1,11 @@
 require 'erb'
 require_relative 'helper.rb'
 require 'i18n'
+require 'tehranjs/web/filter'
 
 I18n.load_path = Dir[::File.join(::File.dirname(__FILE__),"views", 'locals','*.yml')]
 I18n.backend.load_translations
+
 I18n.config.available_locales = :en
 
 
@@ -11,45 +13,61 @@ module Tehranjs
     module Web
         class Controller
 
-        def self.index
-                self.render 'index.html.erb'
-        end
-        def self.about
-                self.render 'about.html.erb'
+        def initialize flash=nil
+            @flash=flash
+        end    
+        def index
+            render 'index.html.erb'
         end
 
-        def self.new_article
-                self.render 'new_article.html.erb'
+        def about
+            render 'about.html.erb'
+        end
+
+        def new_article
+            render 'new_article.html.erb'
         end
         
-        def self.build_article response, params
-                @params = params.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
-                filename = parameterize([@params[:date],@params[:title]].join(' '),'-')
+        def build_article response, params
+            @params = params.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
+            filename = parameterize([@params[:date],@params[:permalink]].join(' '),'-')
+            if @params[:rw] == 'dl'
                 response.content_type = "application/octet-stream"
                 response.[]=('Content-Disposition',"attachment; filename='#{filename}.md'")
-                self.render 'build_article.md.erb',false 
+                render 'build_article.md.erb',false 
+            else
+                article=render 'build_article.md.erb',false 
+                begin
+                 File.open("#{Dir.pwd}/_posts/#{filename}.md", 'w') { |file| file.write(article) }
+                 response.set_redirect(WEBrick::HTTPStatus::MovedPermanently, "/new_article?message=#{I18n.t('flash.successfull')}")  
+                 
+                rescue
+                 response.set_redirect(WEBrick::HTTPStatus::MovedPermanently, "/new_article?message=#{I18n.t('flash.faile_to_write')}")  
+                    
+            end
+            end
         end
 
 
-        def self.version_label
+        def version_label
             return Tehranjs::Identity.version_label
         end
 
-         def self.not_found
+         def not_found
             
         end
 
-        def self.render template , layout=true
+        def render template , layout=true
             @template = File.read(::File.join(::File.dirname(__FILE__),"views", template))
             @layout = File.read(::File.join(::File.dirname(__FILE__),"views", '_layouts','application.html.erb'))
             return ERB.new(@template).result(binding) unless layout
             templates = [@template, @layout]
             templates.inject(nil) do | prev, temp |
-               self._render(temp) { prev }
+               _render(temp) { prev }
             end
         end
 
-        def self._render temp
+        def _render temp
             ERB.new(temp).result( binding )
         end
 
