@@ -1,26 +1,25 @@
 module Tehranjs    
     module Web
         class Servlet < WEBrick::HTTPServlet::AbstractServlet
-
+        attr_reader :flash_bang
                 def do_GET (request, response)
                         response.status = 200
                         response.content_type = "text/html"
-                        
                         result = nil
-                        
+                        @flash=request.query['message']
+                        @controller= Tehranjs::Web::Controller.new(@flash)
                         case request.path
                             when "/"
-                                result = Tehranjs::Web::Controller.index
+                                result = @controller.index
                             when "/about"
-                                result = Tehranjs::Web::Controller.about
+                                result = @controller.about
                             when "/new_article"
-                                result = Tehranjs::Web::Controller.new_article
+                                result = @controller.new_article
                             else
                                 result = "No such method"
                         end
                         
                         response.body = result
-                
                 end
 
 
@@ -29,7 +28,7 @@ module Tehranjs
                     response.content_type = "text/html"
                     case request.path
                       when "/build_article"
-                           result = Tehranjs::Web::Controller.build_article(response,request.query)   
+                           result = Tehranjs::Web::Controller.new.build_article(response,request.query)   
                       else
                         result = 'Invalid url'
                     end
