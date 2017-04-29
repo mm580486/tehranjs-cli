@@ -12,3 +12,8 @@ fa:
      save: ذخیره
      reset: ریست
      content: مقاله خود را اینجا تایپ کنید :)
+     tags: تگ ها
+     permalink: پرمالینک
+  flash:
+       successfull: عملیات با موفقیت به اتمام رسید
+       faile_to_write: ناتوانی در ایجاد فایل (خطای دسترسی)
