@@ -7,10 +7,7 @@ require 'tehranjs/cli/serve'
 module Tehranjs
   # The Command Line Interface (CLI) for the gem.
   class CLI < Thor
-    
     include Thor::Actions
-
-
     package_name Identity.version_label
     namespace :default
 

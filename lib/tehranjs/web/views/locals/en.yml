@@ -12,4 +12,11 @@ en:
       save: Save
       reset: reset
       content: Add article here
+      tags: Tags
+      permalink: Permalink
+      chose_path_description: Chose path to upload file
+      chose_path: Chose path
+  flash:
+       successfull: Proccess is Successfull
+       faile_to_write: Can't write on file (rs_open)
  

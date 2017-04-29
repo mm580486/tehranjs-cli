@@ -9,11 +9,19 @@
             
 
 <div class="row">
-    <form class="col s12" method="POST" action="/build_article">
+    <form class="col s12" method="POST" action="/build_article" id="new_article_form">
       <div class="row">
+        <input type="hidden" id="tags">
+
+
         <div class="input-field col s12">
           <input placeholder="<%= I18n.t('form.title') %>" id="title" name='title' type="text" class="validate">
           <label for="title"><%= I18n.t('form.title') %></label>
+        </div>
+
+       <div class="input-field col s12">
+          <input placeholder="<%= I18n.t('form.permalink') %>" id="permalink" name='permalink' type="text" class="validate">
+          <label for="title"><%= I18n.t('form.permalink') %></label>
         </div>
 
         <div class="input-field col s12">
@@ -31,30 +39,41 @@
           <label for="date"><%= I18n.t('form.date') %></label>
         </div>
          <div class="input-field col s12">
-            <div class="chips chips-static-tags"></div>
+            <input type="text" data-role="materialtags" id="chips-static-tags">
+            <label for="chips-static-tags"><%= I18n.t('form.tags') %></label>
           </div>
 
-<div class="col s12">
-	<textarea id="editor" name="content">
-				<%= I18n.t('form.content') %>
-	</textarea>
-</div>
+          <div class="col s12">
+            <textarea id="editor" name="content">
+                  <%= I18n.t('form.content') %>
+            </textarea>
+          </div>
 
-<div class="col s12">
-    <p>
-      <input name="rw" type="radio" id="dl" value="dl" />
-      <label for="dl">Download</label>
-    </p>
-    <p>
-      <input name="rw" type="radio" id="we" value='we' />
-      <label for="we">Write</label>
-    </p>
-</div>
+          <div class="col s12">
+              <p>
+                <input name="rw" type="radio" id="dl" value="dl" />
+                <label for="dl">Download</label>
+              </p>
+              <p>
+                <input name="rw" type="radio" id="we" value='we' />
+                <label for="we">Write</label>
+              </p>
+              <p> 
+                       
+
+              <div id="wrap_path_choser" style="display:none;">
+                  <div class="card-panel teal lighten-2"> Check this option if your path on jekyll project because Write on ./_posts</div>
+                </div>
+
+
+
+              </p>
+          </div>
 
 </div>
-<input type="submit" class="waves-effect waves-light btn" value="<%= I18n.t('form.save') %>" />
-<input type="reset" class="grey lighten-1 btn" value="<%= I18n.t('form.reset') %>" />
-      
+          <input type="submit" class="waves-effect waves-light btn" value="<%= I18n.t('form.save') %>" />
+          <input type="reset" class="grey lighten-1 btn" value="<%= I18n.t('form.reset') %>" />
+                
             </form>
           </div>
           </span>

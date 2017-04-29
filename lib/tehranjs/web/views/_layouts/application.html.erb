@@ -17,6 +17,9 @@
         <%= javascript_link_tag 'application.js' %>
         <script>
 	        initSample();
+<% if @flash %>
+              Materialize.toast('<%= @flash %>', 6000, 'blue')
+<% end %>
         </script>
    </body>
 </html>
