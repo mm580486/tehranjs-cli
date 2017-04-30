@@ -1,9 +1,10 @@
-def content_tag(element=:div,content=nil,single=false,attr={})
+def content_tag(element=:div,content=nil,single=false,attr={},*block)
     element = element.to_s.downcase
     attrs= attr.map {|k, v| "#{k}='#{v}'" }.join(' ')
     unless single
         tag= "<#{element} #{attrs}>"
         tag << content unless content.nil?
+        yield if block_given?
         tag << "</#{element}>"
     else
        tag= "<#{element} #{attrs}/>" 
